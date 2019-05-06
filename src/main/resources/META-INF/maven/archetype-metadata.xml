@@ -9,16 +9,11 @@
             <defaultValue>cda</defaultValue>
         </requiredProperty>
     </requiredProperties>
+    <!-- @See https://maven.apache.org/shared/file-management/fileset.html -->
     <fileSets>
             <fileSet filtered="true" encoding="UTF-8">
-                <directory>code-generator/src</directory>
-                <includes>
-                    <include>**/*.java</include>
-                    <include>**/*.properties</include>
-                </includes>
-            </fileSet>
-            <fileSet filtered="true" encoding="UTF-8">
                 <directory>code-generator</directory>
+                <outputDirectory>${projectSymbol}-code-generator</outputDirectory>
                 <includes>
                     <include>**/*.xml</include>
                 </includes>
@@ -38,7 +33,7 @@
         </fileSet>
     </fileSets>
     <modules>
-        <module id="core" dir="core" name="${projectSymbol}-core">
+        <module id="core" dir="core" name="core">
             <fileSets>
                 <fileSet filtered="true" packaged="true" encoding="UTF-8">
                     <directory>src/main/java</directory>
@@ -55,7 +50,7 @@
             </fileSets>
         </module>
 
-        <module id="web" dir="web" name="${projectSymbol}-web">
+        <module id="web" dir="web" name="web">
             <fileSets>
                 <fileSet filtered="true" packaged="true" encoding="UTF-8">
                     <directory>src/main/java</directory>
