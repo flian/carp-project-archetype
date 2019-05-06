@@ -8,7 +8,7 @@ code-generator: 简单代码生成器，从表产生domain，repository，servic
 
 core: 核心模块，service 等方法存放位置
 
-court-web: web启动模块
+web: web启动模块
 
 ####启动(使用公共数据库)
 
