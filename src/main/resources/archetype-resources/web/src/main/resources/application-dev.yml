@@ -1,0 +1,26 @@
+spring:
+  datasource:
+        url: jdbc:log4jdbc:mysql://127.0.0.1:3306/carp_demo?useUnicode=true&characterEncoding=utf-8&useSSL=false
+        username: carp_demo
+        password: carp_demo@123
+        driver-class-name: net.sf.log4jdbc.DriverSpy
+        filters: stat,slf4j
+  #flyway配置
+  flyway:
+    enabled: false
+carp:
+  config:
+  #默认页面的title
+    default-title: "carp Demo演示系统"
+    #项目版本号
+    version:  "V1.0.0"
+    #版本状态
+    version-status: "GA"
+    #项目名称,各种地方用到
+    project-name: "carp Demo演示系统"
+    #登录页面的字
+    login-text: "登录"
+    login-user-name: "admin"
+    login-user-password:  "admin123"
+    #是否显示导航上没有实现的链接
+    show-unused-icons:  false

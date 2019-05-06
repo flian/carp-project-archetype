@@ -1,0 +1,1 @@
+static assets like images, css, standalone javascript fiels should be here.

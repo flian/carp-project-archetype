@@ -1,0 +1,1 @@
+freemarker pages should put here.

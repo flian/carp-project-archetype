@@ -1,0 +1,62 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/base.xml"/>
+	<!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
+	<property name="LOG_HOME" value="${symbol_dollar}{LOG_HOME:-./log}" />
+	<!--<property name="LOG_HOME" value="/Users/zbs/code/ttmv/branches/ocms_20160128_zbs/src/main/resources/log" />-->
+	<!-- 控制台输出 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- encoder 默认配置为PatternLayoutEncoder -->
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- 按照每天生成日志文件 -->
+	<appender name="ALL"  class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${symbol_dollar}{LOG_HOME}/web.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${symbol_dollar}{LOG_HOME}/admin_%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>500MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<!--use spring.profiles.active=dev will debug sql-->
+		<logger name="org.lotus.carp" level="ERROR" additivity="false">
+			<appender-ref ref="ALL"/>
+			<appender-ref ref="STDOUT"/>
+		</logger>
+		<logger name="org.lotus.carp.base.config.logging.LoggingRequestInterceptor">
+			<level value="DEBUG"/>
+		</logger>
+		<logger name="org.springframework">
+			<level value="INFO" />
+		</logger>
+		<logger name=" ${package}">
+			<level value="DEBUG" />
+		</logger>
+		<logger name="org.springframework.security">
+			<level value="ERROR" />
+		</logger>
+		<logger name="jdbc.sqlonly" additivity="false" level="ERROR"/>
+		<!--log setting for log4jdbc -->
+		<logger name="net.sf.log4jdbc" level="ERROR"/>
+		<logger name="jdbc.audit" level="ERROR"/>
+		<logger name="jdbc.resultset" level="ERROR"/>
+		<logger name="jdbc.sqlonly" level="ERROR"/>
+		<logger name="jdbc.sqltiming" level="INFO"/>
+		<logger name="jdbc.connection" level="ERROR"/>
+		<logger name="log4jdbc.debug" level="ERROR"/>
+		<root level="ERROR">
+			<appender-ref ref="ALL"/>
+			<appender-ref ref="STDOUT" />
+		</root>
+
+</configuration>
