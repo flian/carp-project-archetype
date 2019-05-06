@@ -10,6 +10,19 @@
         </requiredProperty>
     </requiredProperties>
     <fileSets>
+            <fileSet filtered="true" encoding="UTF-8">
+                <directory>code-generator/src</directory>
+                <includes>
+                    <include>**/*.java</include>
+                    <include>**/*.properties</include>
+                </includes>
+            </fileSet>
+            <fileSet filtered="true" encoding="UTF-8">
+                <directory>code-generator</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </fileSet>
         <fileSet encoding="UTF-8">
             <directory>docs/sql</directory>
             <includes>
@@ -25,23 +38,6 @@
         </fileSet>
     </fileSets>
     <modules>
-        <module id="code-generator" dir="code-generator" name="${projectSymbol}-code-generator">
-            <fileSets>
-                <fileSet filtered="true" encoding="UTF-8">
-                    <directory>code-generator/src</directory>
-                    <includes>
-                        <include>**/*.java</include>
-                        <include>**/*.properties</include>
-                    </includes>
-                </fileSet>
-                <fileSet filtered="true" encoding="UTF-8">
-                    <directory>code-generator</directory>
-                    <includes>
-                        <include>**/*.xml</include>
-                    </includes>
-                </fileSet>
-            </fileSets>
-        </module>
         <module id="core" dir="core" name="${projectSymbol}-core">
             <fileSets>
                 <fileSet filtered="true" packaged="true" encoding="UTF-8">
