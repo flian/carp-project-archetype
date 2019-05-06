@@ -7,9 +7,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>${artifactId}</artifactId>
+    <artifactId>${projectSymbol}-web</artifactId>
 
-    <name>${artifactId}</name>
+    <name>${projectSymbol}-web</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -23,7 +23,7 @@
         </dependency>
         <dependency>
             <groupId>com.at2plus</groupId>
-            <artifactId>core</artifactId>
+            <artifactId>${projectSymbol}-core</artifactId>
             <version>${project.version}</version>
         </dependency>
 

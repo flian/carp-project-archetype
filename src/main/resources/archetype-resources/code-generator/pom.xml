@@ -5,8 +5,8 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>${package}</groupId>
-    <artifactId>code-generator</artifactId>
-    <name>code-generator</name>
+    <artifactId>${projectSymbol}-code-generator</artifactId>
+    <name>${projectSymbol}-code-generator</name>
     <version>${version}</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

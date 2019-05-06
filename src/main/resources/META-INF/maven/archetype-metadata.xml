@@ -4,6 +4,11 @@
         name="custom-archetype"
         xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <requiredProperties>
+        <requiredProperty key="projectSymbol">
+            <defaultValue>cda</defaultValue>
+        </requiredProperty>
+    </requiredProperties>
     <fileSets>
         <fileSet encoding="UTF-8">
             <directory>docs/sql</directory>
@@ -20,7 +25,7 @@
         </fileSet>
     </fileSets>
     <modules>
-        <module id="code-generator" dir="code-generator" name="code-generator">
+        <module id="code-generator" dir="code-generator" name="${projectSymbol}-code-generator">
             <fileSets>
                 <fileSet filtered="true" encoding="UTF-8">
                     <directory>code-generator/src</directory>
@@ -37,7 +42,7 @@
                 </fileSet>
             </fileSets>
         </module>
-        <module id="core" dir="core" name="core">
+        <module id="core" dir="core" name="${projectSymbol}-core">
             <fileSets>
                 <fileSet filtered="true" packaged="true" encoding="UTF-8">
                     <directory>src/main/java</directory>
@@ -54,7 +59,7 @@
             </fileSets>
         </module>
 
-        <module id="web" dir="web" name="web">
+        <module id="web" dir="web" name="${projectSymbol}-web">
             <fileSets>
                 <fileSet filtered="true" packaged="true" encoding="UTF-8">
                     <directory>src/main/java</directory>
