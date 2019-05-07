@@ -13,9 +13,9 @@
     <fileSets>
             <fileSet filtered="true" encoding="UTF-8">
                 <directory>code-generator</directory>
-                <outputDirectory>${projectSymbol}-code-generator</outputDirectory>
+                <outputDirectory>__projectSymbol__-code-generator</outputDirectory>
                 <includes>
-                    <include>**/*.xml</include>
+                    <include>**/**</include>
                 </includes>
             </fileSet>
         <fileSet encoding="UTF-8">
